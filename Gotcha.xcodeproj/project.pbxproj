@@ -32,7 +32,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		562ABD512E46A83C0044676F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.5.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		5641B8102ECAEE08004E0205 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		5694A6302E4D0B8200F86D87 /* Gotcha.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Gotcha.xcdatamodel; sourceTree = "<group>"; };
 		5694A6322E4D220A00F86D87 /* GotchaProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GotchaProperties.swift; sourceTree = "<group>"; };
@@ -92,7 +91,6 @@
 			isa = PBXGroup;
 			children = (
 				5641B8102ECAEE08004E0205 /* CoreData.framework */,
-				562ABD512E46A83C0044676F /* CoreData.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
