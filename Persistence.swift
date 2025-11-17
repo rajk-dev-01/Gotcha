@@ -18,7 +18,7 @@ struct PersistenceController {
         
         ValueTransformer.setValueTransformer(UIImageTransformer(), forName: NSValueTransformerName("UIImageTransformer"))
            
-        container = NSPersistentContainer(name: "ReceiptFinderApp")
+        container = NSPersistentContainer(name: "Gotcha")
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }

@@ -1,5 +1,5 @@
 //
-//  ReceiptFinderAppProperties.swift
+//  GotchaAppProperties.swift
 //  Receipt Finder
 //
 //  Created by Rajahiresh Kalva on 8/13/25.
