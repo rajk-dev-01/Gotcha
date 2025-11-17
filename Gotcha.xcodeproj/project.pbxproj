@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		562ABD522E46A83C0044676F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 562ABD512E46A83C0044676F /* CoreData.framework */; };
+		5641B8112ECAEE08004E0205 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5641B8102ECAEE08004E0205 /* CoreData.framework */; };
 		5694A6312E4D0B8200F86D87 /* Gotcha.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5694A62F2E4D0B8200F86D87 /* Gotcha.xcdatamodeld */; };
-		5694A6332E4D220A00F86D87 /* ReceiptFinderAppProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5694A6322E4D220A00F86D87 /* ReceiptFinderAppProperties.swift */; };
+		5694A6332E4D220A00F86D87 /* GotchaProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5694A6322E4D220A00F86D87 /* GotchaProperties.swift */; };
 		5694A6472E4D2A8200F86D87 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5694A6462E4D2A8200F86D87 /* Persistence.swift */; };
 		5694A6492E4E302D00F86D87 /* UIImageTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5694A6482E4E302D00F86D87 /* UIImageTransformer.swift */; };
 /* End PBXBuildFile section */
@@ -33,8 +33,9 @@
 
 /* Begin PBXFileReference section */
 		562ABD512E46A83C0044676F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.5.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		5641B8102ECAEE08004E0205 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		5694A6302E4D0B8200F86D87 /* Gotcha.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Gotcha.xcdatamodel; sourceTree = "<group>"; };
-		5694A6322E4D220A00F86D87 /* ReceiptFinderAppProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptFinderAppProperties.swift; sourceTree = "<group>"; };
+		5694A6322E4D220A00F86D87 /* GotchaProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GotchaProperties.swift; sourceTree = "<group>"; };
 		5694A6462E4D2A8200F86D87 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		5694A6482E4E302D00F86D87 /* UIImageTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageTransformer.swift; sourceTree = "<group>"; };
 		56A631CB2E395CF9004FCC99 /* Gotcha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gotcha.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,19 +45,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		56A631CD2E395CF9004FCC99 /* Receipt Finder */ = {
+		56A631CD2E395CF9004FCC99 /* Gotcha */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Receipt Finder";
+			path = Gotcha;
 			sourceTree = "<group>";
 		};
-		56A631DC2E395CFA004FCC99 /* Receipt FinderTests */ = {
+		56A631DC2E395CFA004FCC99 /* GotchaTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Receipt FinderTests";
+			path = GotchaTests;
 			sourceTree = "<group>";
 		};
-		56A631E62E395CFA004FCC99 /* Receipt FinderUITests */ = {
+		56A631E62E395CFA004FCC99 /* GotchaUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Receipt FinderUITests";
+			path = GotchaUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -66,7 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				562ABD522E46A83C0044676F /* CoreData.framework in Frameworks */,
+				5641B8112ECAEE08004E0205 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +91,7 @@
 		562ABD502E46A83C0044676F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5641B8102ECAEE08004E0205 /* CoreData.framework */,
 				562ABD512E46A83C0044676F /* CoreData.framework */,
 			);
 			name = Frameworks;
@@ -101,11 +103,11 @@
 				5694A6482E4E302D00F86D87 /* UIImageTransformer.swift */,
 				56DD8A662EC19A690014F997 /* Secrets.xcconfig */,
 				5694A62F2E4D0B8200F86D87 /* Gotcha.xcdatamodeld */,
-				5694A6322E4D220A00F86D87 /* ReceiptFinderAppProperties.swift */,
+				5694A6322E4D220A00F86D87 /* GotchaProperties.swift */,
 				5694A6462E4D2A8200F86D87 /* Persistence.swift */,
-				56A631CD2E395CF9004FCC99 /* Receipt Finder */,
-				56A631DC2E395CFA004FCC99 /* Receipt FinderTests */,
-				56A631E62E395CFA004FCC99 /* Receipt FinderUITests */,
+				56A631CD2E395CF9004FCC99 /* Gotcha */,
+				56A631DC2E395CFA004FCC99 /* GotchaTests */,
+				56A631E62E395CFA004FCC99 /* GotchaUITests */,
 				562ABD502E46A83C0044676F /* Frameworks */,
 				56A631CC2E395CF9004FCC99 /* Products */,
 			);
@@ -137,7 +139,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				56A631CD2E395CF9004FCC99 /* Receipt Finder */,
+				56A631CD2E395CF9004FCC99 /* Gotcha */,
 			);
 			name = Gotcha;
 			packageProductDependencies = (
@@ -160,7 +162,7 @@
 				56A631DB2E395CFA004FCC99 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				56A631DC2E395CFA004FCC99 /* Receipt FinderTests */,
+				56A631DC2E395CFA004FCC99 /* GotchaTests */,
 			);
 			name = GotchaTests;
 			packageProductDependencies = (
@@ -183,7 +185,7 @@
 				56A631E52E395CFA004FCC99 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				56A631E62E395CFA004FCC99 /* Receipt FinderUITests */,
+				56A631E62E395CFA004FCC99 /* GotchaUITests */,
 			);
 			name = GotchaUITests;
 			packageProductDependencies = (
@@ -269,7 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5694A6472E4D2A8200F86D87 /* Persistence.swift in Sources */,
-				5694A6332E4D220A00F86D87 /* ReceiptFinderAppProperties.swift in Sources */,
+				5694A6332E4D220A00F86D87 /* GotchaProperties.swift in Sources */,
 				5694A6312E4D0B8200F86D87 /* Gotcha.xcdatamodeld in Sources */,
 				5694A6492E4E302D00F86D87 /* UIImageTransformer.swift in Sources */,
 			);
@@ -427,7 +429,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Receipt Finder/Receipt_Finder.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HYZ9LT2Q9B;
@@ -468,7 +470,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Receipt Finder/Receipt_Finder.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HYZ9LT2Q9B;
