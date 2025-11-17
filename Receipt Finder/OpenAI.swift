@@ -1,6 +1,6 @@
 //
 //  OpenAI.swift
-//  Receipt Finder
+//  Gotcha
 //
 //  Created by Rajahiresh Kalva on 10/2/25.
 //

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		562ABD522E46A83C0044676F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 562ABD512E46A83C0044676F /* CoreData.framework */; };
-		5694A6312E4D0B8200F86D87 /* ReceiptFinderApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5694A62F2E4D0B8200F86D87 /* ReceiptFinderApp.xcdatamodeld */; };
+		5694A6312E4D0B8200F86D87 /* Gotcha.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5694A62F2E4D0B8200F86D87 /* Gotcha.xcdatamodeld */; };
 		5694A6332E4D220A00F86D87 /* ReceiptFinderAppProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5694A6322E4D220A00F86D87 /* ReceiptFinderAppProperties.swift */; };
 		5694A6472E4D2A8200F86D87 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5694A6462E4D2A8200F86D87 /* Persistence.swift */; };
 		5694A6492E4E302D00F86D87 /* UIImageTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5694A6482E4E302D00F86D87 /* UIImageTransformer.swift */; };
@@ -33,13 +33,13 @@
 
 /* Begin PBXFileReference section */
 		562ABD512E46A83C0044676F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.5.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
-		5694A6302E4D0B8200F86D87 /* ReceiptFinderApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ReceiptFinderApp.xcdatamodel; sourceTree = "<group>"; };
+		5694A6302E4D0B8200F86D87 /* Gotcha.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Gotcha.xcdatamodel; sourceTree = "<group>"; };
 		5694A6322E4D220A00F86D87 /* ReceiptFinderAppProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptFinderAppProperties.swift; sourceTree = "<group>"; };
 		5694A6462E4D2A8200F86D87 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		5694A6482E4E302D00F86D87 /* UIImageTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageTransformer.swift; sourceTree = "<group>"; };
-		56A631CB2E395CF9004FCC99 /* Receipt Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Receipt Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		56A631D92E395CFA004FCC99 /* Receipt FinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Receipt FinderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		56A631E32E395CFA004FCC99 /* Receipt FinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Receipt FinderUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		56A631CB2E395CF9004FCC99 /* Gotcha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gotcha.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		56A631D92E395CFA004FCC99 /* GotchaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GotchaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		56A631E32E395CFA004FCC99 /* GotchaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GotchaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56DD8A662EC19A690014F997 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,7 +100,7 @@
 			children = (
 				5694A6482E4E302D00F86D87 /* UIImageTransformer.swift */,
 				56DD8A662EC19A690014F997 /* Secrets.xcconfig */,
-				5694A62F2E4D0B8200F86D87 /* ReceiptFinderApp.xcdatamodeld */,
+				5694A62F2E4D0B8200F86D87 /* Gotcha.xcdatamodeld */,
 				5694A6322E4D220A00F86D87 /* ReceiptFinderAppProperties.swift */,
 				5694A6462E4D2A8200F86D87 /* Persistence.swift */,
 				56A631CD2E395CF9004FCC99 /* Receipt Finder */,
@@ -114,9 +114,9 @@
 		56A631CC2E395CF9004FCC99 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				56A631CB2E395CF9004FCC99 /* Receipt Finder.app */,
-				56A631D92E395CFA004FCC99 /* Receipt FinderTests.xctest */,
-				56A631E32E395CFA004FCC99 /* Receipt FinderUITests.xctest */,
+				56A631CB2E395CF9004FCC99 /* Gotcha.app */,
+				56A631D92E395CFA004FCC99 /* GotchaTests.xctest */,
+				56A631E32E395CFA004FCC99 /* GotchaUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,9 +124,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		56A631CA2E395CF9004FCC99 /* Receipt Finder */ = {
+		56A631CA2E395CF9004FCC99 /* Gotcha */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 56A631ED2E395CFA004FCC99 /* Build configuration list for PBXNativeTarget "Receipt Finder" */;
+			buildConfigurationList = 56A631ED2E395CFA004FCC99 /* Build configuration list for PBXNativeTarget "Gotcha" */;
 			buildPhases = (
 				56A631C72E395CF9004FCC99 /* Sources */,
 				56A631C82E395CF9004FCC99 /* Frameworks */,
@@ -139,16 +139,16 @@
 			fileSystemSynchronizedGroups = (
 				56A631CD2E395CF9004FCC99 /* Receipt Finder */,
 			);
-			name = "Receipt Finder";
+			name = Gotcha;
 			packageProductDependencies = (
 			);
 			productName = "Receipt Finder";
-			productReference = 56A631CB2E395CF9004FCC99 /* Receipt Finder.app */;
+			productReference = 56A631CB2E395CF9004FCC99 /* Gotcha.app */;
 			productType = "com.apple.product-type.application";
 		};
-		56A631D82E395CFA004FCC99 /* Receipt FinderTests */ = {
+		56A631D82E395CFA004FCC99 /* GotchaTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 56A631F02E395CFA004FCC99 /* Build configuration list for PBXNativeTarget "Receipt FinderTests" */;
+			buildConfigurationList = 56A631F02E395CFA004FCC99 /* Build configuration list for PBXNativeTarget "GotchaTests" */;
 			buildPhases = (
 				56A631D52E395CFA004FCC99 /* Sources */,
 				56A631D62E395CFA004FCC99 /* Frameworks */,
@@ -162,16 +162,16 @@
 			fileSystemSynchronizedGroups = (
 				56A631DC2E395CFA004FCC99 /* Receipt FinderTests */,
 			);
-			name = "Receipt FinderTests";
+			name = GotchaTests;
 			packageProductDependencies = (
 			);
 			productName = "Receipt FinderTests";
-			productReference = 56A631D92E395CFA004FCC99 /* Receipt FinderTests.xctest */;
+			productReference = 56A631D92E395CFA004FCC99 /* GotchaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		56A631E22E395CFA004FCC99 /* Receipt FinderUITests */ = {
+		56A631E22E395CFA004FCC99 /* GotchaUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 56A631F32E395CFA004FCC99 /* Build configuration list for PBXNativeTarget "Receipt FinderUITests" */;
+			buildConfigurationList = 56A631F32E395CFA004FCC99 /* Build configuration list for PBXNativeTarget "GotchaUITests" */;
 			buildPhases = (
 				56A631DF2E395CFA004FCC99 /* Sources */,
 				56A631E02E395CFA004FCC99 /* Frameworks */,
@@ -185,11 +185,11 @@
 			fileSystemSynchronizedGroups = (
 				56A631E62E395CFA004FCC99 /* Receipt FinderUITests */,
 			);
-			name = "Receipt FinderUITests";
+			name = GotchaUITests;
 			packageProductDependencies = (
 			);
 			productName = "Receipt FinderUITests";
-			productReference = 56A631E32E395CFA004FCC99 /* Receipt FinderUITests.xctest */;
+			productReference = 56A631E32E395CFA004FCC99 /* GotchaUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -215,7 +215,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 56A631C62E395CF9004FCC99 /* Build configuration list for PBXProject "Receipt Finder" */;
+			buildConfigurationList = 56A631C62E395CF9004FCC99 /* Build configuration list for PBXProject "Gotcha" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -232,9 +232,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				56A631CA2E395CF9004FCC99 /* Receipt Finder */,
-				56A631D82E395CFA004FCC99 /* Receipt FinderTests */,
-				56A631E22E395CFA004FCC99 /* Receipt FinderUITests */,
+				56A631CA2E395CF9004FCC99 /* Gotcha */,
+				56A631D82E395CFA004FCC99 /* GotchaTests */,
+				56A631E22E395CFA004FCC99 /* GotchaUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -270,7 +270,7 @@
 			files = (
 				5694A6472E4D2A8200F86D87 /* Persistence.swift in Sources */,
 				5694A6332E4D220A00F86D87 /* ReceiptFinderAppProperties.swift in Sources */,
-				5694A6312E4D0B8200F86D87 /* ReceiptFinderApp.xcdatamodeld in Sources */,
+				5694A6312E4D0B8200F86D87 /* Gotcha.xcdatamodeld in Sources */,
 				5694A6492E4E302D00F86D87 /* UIImageTransformer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,12 +294,12 @@
 /* Begin PBXTargetDependency section */
 		56A631DB2E395CFA004FCC99 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 56A631CA2E395CF9004FCC99 /* Receipt Finder */;
+			target = 56A631CA2E395CF9004FCC99 /* Gotcha */;
 			targetProxy = 56A631DA2E395CFA004FCC99 /* PBXContainerItemProxy */;
 		};
 		56A631E52E395CFA004FCC99 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 56A631CA2E395CF9004FCC99 /* Receipt Finder */;
+			target = 56A631CA2E395CF9004FCC99 /* Gotcha */;
 			targetProxy = 56A631E42E395CFA004FCC99 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -521,7 +521,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Receipt Finder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Receipt Finder";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gotcha.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Gotcha";
 				XROS_DEPLOYMENT_TARGET = 2.5;
 			};
 			name = Debug;
@@ -544,7 +544,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Receipt Finder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Receipt Finder";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gotcha.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Gotcha";
 				XROS_DEPLOYMENT_TARGET = 2.5;
 			};
 			name = Release;
@@ -596,7 +596,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		56A631C62E395CF9004FCC99 /* Build configuration list for PBXProject "Receipt Finder" */ = {
+		56A631C62E395CF9004FCC99 /* Build configuration list for PBXProject "Gotcha" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				56A631EB2E395CFA004FCC99 /* Debug */,
@@ -605,7 +605,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		56A631ED2E395CFA004FCC99 /* Build configuration list for PBXNativeTarget "Receipt Finder" */ = {
+		56A631ED2E395CFA004FCC99 /* Build configuration list for PBXNativeTarget "Gotcha" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				56A631EE2E395CFA004FCC99 /* Debug */,
@@ -614,7 +614,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		56A631F02E395CFA004FCC99 /* Build configuration list for PBXNativeTarget "Receipt FinderTests" */ = {
+		56A631F02E395CFA004FCC99 /* Build configuration list for PBXNativeTarget "GotchaTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				56A631F12E395CFA004FCC99 /* Debug */,
@@ -623,7 +623,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		56A631F32E395CFA004FCC99 /* Build configuration list for PBXNativeTarget "Receipt FinderUITests" */ = {
+		56A631F32E395CFA004FCC99 /* Build configuration list for PBXNativeTarget "GotchaUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				56A631F42E395CFA004FCC99 /* Debug */,
@@ -646,13 +646,13 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCVersionGroup section */
-		5694A62F2E4D0B8200F86D87 /* ReceiptFinderApp.xcdatamodeld */ = {
+		5694A62F2E4D0B8200F86D87 /* Gotcha.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				5694A6302E4D0B8200F86D87 /* ReceiptFinderApp.xcdatamodel */,
+				5694A6302E4D0B8200F86D87 /* Gotcha.xcdatamodel */,
 			);
-			currentVersion = 5694A6302E4D0B8200F86D87 /* ReceiptFinderApp.xcdatamodel */;
-			path = ReceiptFinderApp.xcdatamodeld;
+			currentVersion = 5694A6302E4D0B8200F86D87 /* Gotcha.xcdatamodel */;
+			path = Gotcha.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

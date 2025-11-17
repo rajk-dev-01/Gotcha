@@ -1,6 +1,6 @@
 //
 //  OCR.swift
-//  Receipt Finder
+//  Gotcha
 //
 //  Created by Rajahiresh Kalva on 11/10/25.
 //

@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  Receipt Finder
+//  Gotcha
 //
 //  Created by Rajahiresh Kalva on 7/29/25.
 //
@@ -11,7 +11,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Text("Welcome to Receipt Finder App!")
+                Text("Welcome to Gotcha App!")
                     .font(.largeTitle)
                     .frame(width:300, height: 100)
                     .multilineTextAlignment(.center)

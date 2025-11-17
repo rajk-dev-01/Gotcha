@@ -1,6 +1,6 @@
 //
 //  Receipt_FinderTests.swift
-//  Receipt FinderTests
+//  GotchaTests
 //
 //  Created by Rajahiresh Kalva on 7/29/25.
 //

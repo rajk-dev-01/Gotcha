@@ -1,6 +1,6 @@
 //
 //  Receipt_FinderApp.swift
-//  Receipt Finder
+//  Gotcha
 //
 //  Created by Rajahiresh Kalva on 7/29/25.
 //

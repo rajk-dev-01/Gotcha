@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "56A631CA2E395CF9004FCC99"
-               BuildableName = "Receipt Finder.app"
-               BlueprintName = "Receipt Finder"
-               ReferencedContainer = "container:Receipt Finder.xcodeproj">
+               BuildableName = "Gotcha.app"
+               BlueprintName = "Gotcha"
+               ReferencedContainer = "container:Gotcha.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -36,9 +36,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "56A631D82E395CFA004FCC99"
-               BuildableName = "Receipt FinderTests.xctest"
-               BlueprintName = "Receipt FinderTests"
-               ReferencedContainer = "container:Receipt Finder.xcodeproj">
+               BuildableName = "GotchaTests.xctest"
+               BlueprintName = "GotchaTests"
+               ReferencedContainer = "container:Gotcha.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "56A631E22E395CFA004FCC99"
-               BuildableName = "Receipt FinderUITests.xctest"
-               BlueprintName = "Receipt FinderUITests"
-               ReferencedContainer = "container:Receipt Finder.xcodeproj">
+               BuildableName = "GotchaUITests.xctest"
+               BlueprintName = "GotchaUITests"
+               ReferencedContainer = "container:Gotcha.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -69,9 +69,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "56A631CA2E395CF9004FCC99"
-            BuildableName = "Receipt Finder.app"
-            BlueprintName = "Receipt Finder"
-            ReferencedContainer = "container:Receipt Finder.xcodeproj">
+            BuildableName = "Gotcha.app"
+            BlueprintName = "Gotcha"
+            ReferencedContainer = "container:Gotcha.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -86,9 +86,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "56A631CA2E395CF9004FCC99"
-            BuildableName = "Receipt Finder.app"
-            BlueprintName = "Receipt Finder"
-            ReferencedContainer = "container:Receipt Finder.xcodeproj">
+            BuildableName = "Gotcha.app"
+            BlueprintName = "Gotcha"
+            ReferencedContainer = "container:Gotcha.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

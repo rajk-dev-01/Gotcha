@@ -1,6 +1,6 @@
 //
 //  ZoomableFullScreenImage.swift
-//  Receipt Finder
+//  Gotcha
 //
 //  Created by Rajahiresh Kalva on 8/26/25.
 //
