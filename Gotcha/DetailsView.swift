@@ -6,16 +6,12 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct DetailsView: View {
-    var item: Item
-    var recognizedText: String // ✅ raw OCR text passed here
+    var item: ReceiptItem
     
     @State private var fullScreenImage: Bool = false
-    @State private var extractedInfo: [String: Any]?
-    @State private var isLoading = false
-    
-    private let service = OpenAIService() // assumes you implemented earlier
     
     var body: some View {
         ScrollView {
@@ -32,8 +28,8 @@ struct DetailsView: View {
                         .padding(.horizontal)
                 }
                 
-                // 🔹 Receipt Image
-                if let image = item.image as? UIImage {
+                // 🔹 Receipt Image (Convert Data -> UIImage)
+                if let imageData = item.image, let image = UIImage(data: imageData) {
                     Image(uiImage: image)
                         .resizable()
                         .scaledToFit()
@@ -46,56 +42,61 @@ struct DetailsView: View {
                         .fullScreenCover(isPresented: $fullScreenImage) {
                             ZoomableFullScreenImage(image: image, fullScreenImage: $fullScreenImage)
                         }
+                } else {
+                    Text("No Image Available")
+                        .foregroundColor(.gray)
+                        .padding()
                 }
                 
                 Divider()
                 
-                // 🔹 Extracted Info Section
-                if isLoading {
-                    ProgressView("Analyzing receipt…")
-                        .padding()
-                } else if let info = extractedInfo {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Store: \(info["storeName"] as? String ?? "Unknown")")
-                        Text("Date: \(info["date"] as? String ?? "Unknown")")
-                        Text("Total: \(info["totalAmount"] as? String ?? "Unknown")")
-                        Text("Address: \(info["address"] as? String ?? "Unknown")")
-                        Text("Payment: \(info["paymentMethod"] as? String ?? "Unknown")")
-                        Text("Name: \(info["name"] as? String ?? "Unknown")")
-                        Text("PhoneNumber: \(info["phoneNumber"] as? String ?? "Unknown")")
-                        Text("ReceiptID: \(info["receiptId"] as? String ?? "Unknown")")
-                        Text("TrackingNumber: \(info["tracking"] as? String ?? "Unknown")")
-
+                // 🔹 Details Section
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("Receipt Details")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .padding(.bottom, 5)
+                    
+                    Group {
+                        rowView(label: "Store", value: item.storeName)
+                        rowView(label: "Date", value: item.date)
+                        rowView(label: "Total", value: item.totalAmount)
+                        rowView(label: "Address", value: item.address)
+                        rowView(label: "Payment", value: item.paymentMethod)
+                        rowView(label: "Customer", value: item.customerName)
+                        rowView(label: "Phone", value: item.phoneNumber)
+                        rowView(label: "Receipt ID", value: item.receiptId)
+                        rowView(label: "Tracking", value: item.tracking)
                     }
-                    .padding()
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(Color.gray.opacity(0.1))
-                    .cornerRadius(10)
-                }
-                
-                // 🔹 Parse Button
-                Button("Extract Receipt Details") {
-                    analyzeReceipt()
                 }
                 .padding()
-                .background(Color.blue)
-                .foregroundColor(.white)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(Color(.systemGray6))
                 .cornerRadius(12)
+                .padding(.horizontal)
+                
+                Spacer()
             }
+            .padding(.bottom, 30)
         }
+        .navigationTitle("Receipt Info")
+        .navigationBarTitleDisplayMode(.inline)
     }
     
-    // MARK: - ChatGPT Integration
-    private func analyzeReceipt() {
-        guard !recognizedText.isEmpty else { return }
-        
-        isLoading = true
-        service.extractReceiptInfo(from: recognizedText) { result in
-            DispatchQueue.main.async {
-                self.extractedInfo = result
-                self.isLoading = false
-            }
+    private func rowView(label: String, value: String?) -> some View {
+        HStack(alignment: .top) {
+            Text("\(label):")
+                .fontWeight(.semibold)
+                .foregroundColor(.primary)
+                .frame(width: 110, alignment: .leading)
+            
+            Text(value?.isEmpty == false ? value! : "Not Available")
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.leading)
+            
+            Spacer()
         }
+        .padding(.vertical, 2)
     }
 }
 

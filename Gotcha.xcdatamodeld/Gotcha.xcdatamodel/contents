@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23788.4" systemVersion="24G84" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
-    <entity name="Item" representedClassName="Item" syncable="YES">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="24299" systemVersion="25B78" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="ReceiptItem" representedClassName="ReceiptItem" syncable="YES" codeGenerationType="class">
+        <attribute name="address" optional="YES" attributeType="String"/>
+        <attribute name="customerName" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="image" attributeType="Transformable" valueTransformerName="UIImageTransformable"/>
+        <attribute name="image" attributeType="Binary" valueTransformerName="UIImageTransformable" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="paymentMethod" optional="YES" attributeType="String"/>
+        <attribute name="phoneNumber" optional="YES" attributeType="String"/>
+        <attribute name="receiptId" optional="YES" attributeType="String"/>
+        <attribute name="storeName" optional="YES" attributeType="String"/>
+        <attribute name="totalAmount" optional="YES" attributeType="String"/>
+        <attribute name="tracking" optional="YES" attributeType="String"/>
     </entity>
 </model>

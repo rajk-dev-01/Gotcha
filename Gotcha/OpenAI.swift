@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftUI
 
 class OpenAIService {
     // ✅ Securely read API key from Info.plist
@@ -14,85 +13,81 @@ class OpenAIService {
         guard let infoDictionary = Bundle.main.infoDictionary,
               let key = infoDictionary["OPENAI_API_KEY"] as? String,
               !key.isEmpty else {
-            fatalError("❌ Missing OpenAI API key. Please add 'OPENAI_API_KEY' to Info.plist.")
+            print("❌ CRITICAL ERROR: Missing OpenAI API key in Info.plist")
+            return ""
         }
         return key
     }()
     
     /// Sends receipt text to OpenAI and returns parsed fields as a dictionary
-    func extractReceiptInfo(from text: String, completion: @escaping ([String: Any]?) -> Void) {
+    /// Uses async/await for modern concurrency handling
+    func extractReceiptInfo(from text: String) async throws -> [String: Any] {
+        guard !apiKey.isEmpty else {
+            throw NSError(domain: "OpenAIService", code: 401, userInfo: [NSLocalizedDescriptionKey: "Missing API Key"])
+        }
+        
         let url = URL(string: "https://api.openai.com/v1/chat/completions")!
         
+        // 1. Refined Prompt
         let prompt = """
-        You are a receipt parser. Extract the following fields from this text:
+        Analyze this receipt text and extract the following fields:
         - Store Name
-        - Name (Customer Name only if not available mention NOT AVAILABLE)
         - Date
         - Total Amount
         - Address
         - Payment Method
+        - Name (Customer Name)
         - Phone Number
         - Receipt Id
-        - Tracking Numbers (numbers used to track packages available only for package receipts, if not available mention NOT AVAILABLE)
-        Return them strictly as JSON with keys: storeName, date, totalAmount, address, paymentMethod, name, phoneNumber, receiptId, tracking.
-        No extra text, no explanation.
+        - Tracking Numbers (if package receipt)
 
-        Receipt text:
+        If a field is missing, use "NOT AVAILABLE".
+        Return ONLY valid JSON.
+        Keys: storeName, date, totalAmount, address, paymentMethod, name, phoneNumber, receiptId, tracking.
+        
+        Receipt Text:
         \(text)
         """
         
+        // 2. Request Body with JSON Mode
         let body: [String: Any] = [
             "model": "gpt-4o-mini",
+            "response_format": ["type": "json_object"], // 👈 FIX: Forces valid JSON
             "messages": [
-                ["role": "system", "content": "You are a helpful receipt parser."],
+                ["role": "system", "content": "You are a helpful receipt parsing assistant. You output strict JSON."],
                 ["role": "user", "content": prompt]
             ],
-            "temperature": 0
+            "temperature": 0.1
         ]
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try JSONSerialization.data(withJSONObject: body)
         
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: body)
-        } catch {
-            print("❌ Failed to serialize request body: \(error)")
-            completion(nil)
-            return
+        // 3. Perform Network Request
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        // 4. Debugging: Print raw response if something goes wrong
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            let errorMsg = String(data: data, encoding: .utf8) ?? "Unknown Error"
+            print("❌ OpenAI API Error: \(errorMsg)")
+            throw NSError(domain: "OpenAIService", code: (response as? HTTPURLResponse)?.statusCode ?? 500, userInfo: [NSLocalizedDescriptionKey: errorMsg])
         }
         
-        // 🔄 Network call
-        URLSession.shared.dataTask(with: request) { data, _, error in
-            guard let data = data, error == nil else {
-                print("❌ OpenAI API error: \(error?.localizedDescription ?? "Unknown error")")
-                completion(nil)
-                return
-            }
+        // 5. Parse Response
+        if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+           let choices = json["choices"] as? [[String: Any]],
+           let message = choices.first?["message"] as? [String: Any],
+           let content = message["content"] as? String,
+           let data = content.data(using: .utf8),
+           let parsedResult = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
             
-            do {
-                if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
-                   let choices = json["choices"] as? [[String: Any]],
-                   let message = choices.first?["message"] as? [String: Any],
-                   let content = message["content"] as? String {
-                    
-                    // Extract pure JSON from model response
-                    if let start = content.firstIndex(of: "{"),
-                       let end = content.lastIndex(of: "}") {
-                        let jsonString = String(content[start...end])
-                        if let contentData = jsonString.data(using: .utf8),
-                           let parsed = try? JSONSerialization.jsonObject(with: contentData) as? [String: Any] {
-                            completion(parsed)
-                            return
-                        }
-                    }
-                }
-                completion(nil)
-            } catch {
-                print("❌ JSON parsing error: \(error)")
-                completion(nil)
-            }
-        }.resume()
+            print("✅ Successfully parsed JSON: \(parsedResult)")
+            return parsedResult
+        }
+        
+        throw NSError(domain: "OpenAIService", code: 500, userInfo: [NSLocalizedDescriptionKey: "Failed to parse OpenAI JSON structure"])
     }
 }

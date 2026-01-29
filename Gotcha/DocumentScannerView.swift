@@ -1,5 +1,5 @@
 //
-//  CameraView.swift
+//  DocumentScannerView.swift
 //  Gotcha
 //
 //  Created by Rajahiresh Kalva on 8/6/25.
@@ -7,13 +7,12 @@
 
 import SwiftUI
 import VisionKit
-import Vision
 
 struct DocumentScannerView: UIViewControllerRepresentable {
     @Environment(\.presentationMode) var presentationMode
     
-    // Pass scanned images + OCR text back to parent
-    var onScanComplete: (_ images: [UIImage], _ recognizedText: String) -> Void
+    // ✅ Changed: Now only returns the image (OCR happens later)
+    var onScanComplete: (_ image: UIImage) -> Void
     
     func makeUIViewController(context: Context) -> VNDocumentCameraViewController {
         let scanner = VNDocumentCameraViewController()
@@ -40,34 +39,32 @@ struct DocumentScannerView: UIViewControllerRepresentable {
         
         func documentCameraViewController(_ controller: VNDocumentCameraViewController,
                                           didFailWithError error: Error) {
-            print("❌ Scanning failed: \(error.localizedDescription)")
             parent.presentationMode.wrappedValue.dismiss()
         }
         
         func documentCameraViewController(_ controller: VNDocumentCameraViewController,
                                           didFinishWith scan: VNDocumentCameraScan) {
-            var images: [UIImage] = []
-            for i in 0..<scan.pageCount {
-                images.append(scan.imageOfPage(at: i))
-            }
-            
+            // Dismiss immediately
             parent.presentationMode.wrappedValue.dismiss()
             
-            // ✅ Run OCR on first page (or loop if multi-page)
-            DispatchQueue.global(qos: .userInitiated).async {
-                guard let firstImage = images.first else {
-                    DispatchQueue.main.async {
-                        self.parent.onScanComplete(images, "❌ No image found for OCR")
-                    }
-                    return
-                }
-                
-                // ✅ Use the shared OCRHelper instead of inline OCR logic
-                OCRHelper.extractText(from: firstImage) { recognizedText in
-                    DispatchQueue.main.async {
-                        self.parent.onScanComplete(images, recognizedText)
-                    }
-                }
+            guard scan.pageCount > 0 else { return }
+            let originalImage = scan.imageOfPage(at: 0)
+            
+            // ⚡️ FAST RESIZE: Scale to 1200px width so navigation is smooth
+            let resizedImage = resizeImage(image: originalImage, targetWidth: 1200) ?? originalImage
+            
+            // Return image immediately without waiting for OCR
+            parent.onScanComplete(resizedImage)
+        }
+        
+        private func resizeImage(image: UIImage, targetWidth: CGFloat) -> UIImage? {
+            let scale = targetWidth / image.size.width
+            let targetHeight = image.size.height * scale
+            let targetSize = CGSize(width: targetWidth, height: targetHeight)
+            
+            let renderer = UIGraphicsImageRenderer(size: targetSize)
+            return renderer.image { _ in
+                image.draw(in: CGRect(origin: .zero, size: targetSize))
             }
         }
     }
