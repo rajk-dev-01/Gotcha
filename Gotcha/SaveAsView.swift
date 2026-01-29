@@ -16,7 +16,7 @@ struct SaveAsView: View {
     @State var fileName: String
     @State var searchText: String
     
-    // Extracted Fields
+    // Extracted Fields (ALL FIELDS PRESERVED)
     @State private var storeName: String = ""
     @State private var date: String = ""
     @State private var totalAmount: String = ""
@@ -36,96 +36,124 @@ struct SaveAsView: View {
     private let openAIService = OpenAIService()
     
     var body: some View {
-        ScrollView {
-            VStack(spacing: 20) {
-                
-                // MARK: - Image Section
-                if let image = selectedImage {
-                    Image(uiImage: image)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 200)
-                        .cornerRadius(12)
-                        .shadow(radius: 5)
-                        .onTapGesture { fullScreenImage.toggle() }
-                }
-                
-                // MARK: - File Name
-                VStack(alignment: .leading, spacing: 5) {
-                    Text("FILE NAME")
-                        .font(.caption)
-                        .fontWeight(.bold)
-                        .foregroundColor(.gray)
+        ZStack {
+            // THEME: Green Gradient
+            AppTheme.mainBackground.ignoresSafeArea()
+            
+            ScrollView {
+                VStack(spacing: 20) {
                     
-                    TextField("Enter File Name", text: $fileName)
-                        .padding()
-                        .background(Color(.systemGray6))
-                        .cornerRadius(10)
-                        .submitLabel(.done) // ✅ Adds "Done" button to keyboard
-                }
-                .padding(.horizontal)
-                
-                // MARK: - Details Section
-                VStack(alignment: .leading, spacing: 15) {
-                    HStack {
-                        Text("VERIFIED DETAILS")
-                            .font(.caption)
+                    // MARK: - Image Section
+                    if let image = selectedImage {
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 200)
+                            .cornerRadius(12)
+                            .shadow(color: Color.black.opacity(0.2), radius: 8, x: 0, y: 4)
+                            .onTapGesture { fullScreenImage.toggle() }
+                    }
+                    
+                    // MARK: - File Name (Glass Style)
+                    VStack(alignment: .leading, spacing: 5) {
+                        Text("FILE NAME")
+                            .font(.system(.caption, design: .rounded))
                             .fontWeight(.bold)
-                            .foregroundColor(.gray)
-                        Spacer()
-                        if isLoading {
-                            ProgressView()
-                                .scaleEffect(0.8)
-                        }
+                            .foregroundColor(AppTheme.deepText) // Dark Text
+                        
+                        TextField("Enter File Name", text: $fileName)
+                            .padding()
+                            // GLASS EFFECT
+                            .background(.ultraThinMaterial)
+                            .background(Color.white.opacity(0.3))
+                            .cornerRadius(10)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.white.opacity(0.4), lineWidth: 1)
+                            )
+                            .foregroundColor(AppTheme.deepText)
+                            .font(.system(.body, design: .rounded))
+                            .submitLabel(.done)
                     }
+                    .padding(.horizontal)
                     
-                    // Fields Container
-                    VStack(spacing: 1) {
-                        CustomTextField(label: "Store", text: $storeName)
-                        Divider()
-                        CustomTextField(label: "Date", text: $date)
-                        Divider()
-                        CustomTextField(label: "Total", text: $totalAmount, keyboard: .decimalPad)
-                        Divider()
-                        CustomTextField(label: "Address", text: $address)
-                        Divider()
-                        CustomTextField(label: "Payment", text: $paymentMethod)
-                        Divider()
-                        CustomTextField(label: "Customer", text: $customerName)
-                        Divider()
-                        CustomTextField(label: "Phone", text: $phoneNumber, keyboard: .phonePad)
-                        Divider()
-                        CustomTextField(label: "Receipt ID", text: $receiptId)
-                        Divider()
-                        CustomTextField(label: "Tracking", text: $tracking)
-                    }
-                    .background(Color(.systemGray6))
-                    .cornerRadius(12)
-                }
-                .padding(.horizontal)
-                
-                // MARK: - Save Button
-                Button(action: validateAndSave) {
-                    Text(isLoading ? statusMessage : "Save Receipt")
-                        .fontWeight(.bold)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(isLoading ? Color.gray : Color.blue)
-                        .foregroundColor(.white)
+                    // MARK: - Details Section
+                    VStack(alignment: .leading, spacing: 15) {
+                        HStack {
+                            Text("VERIFIED DETAILS")
+                                .font(.system(.caption, design: .rounded))
+                                .fontWeight(.bold)
+                                .foregroundColor(AppTheme.deepText)
+                            Spacer()
+                            if isLoading {
+                                ProgressView()
+                                    .scaleEffect(0.8)
+                            }
+                        }
+                        
+                        // Fields Container (Glass Card)
+                        VStack(spacing: 1) {
+                            CustomTextField(label: "Store", text: $storeName)
+                            Divider().background(Color.black.opacity(0.1))
+                            CustomTextField(label: "Date", text: $date)
+                            Divider().background(Color.black.opacity(0.1))
+                            CustomTextField(label: "Total", text: $totalAmount, keyboard: .decimalPad)
+                            Divider().background(Color.black.opacity(0.1))
+                            CustomTextField(label: "Address", text: $address)
+                            Divider().background(Color.black.opacity(0.1))
+                            CustomTextField(label: "Payment", text: $paymentMethod)
+                            Divider().background(Color.black.opacity(0.1))
+                            CustomTextField(label: "Customer", text: $customerName)
+                            Divider().background(Color.black.opacity(0.1))
+                            CustomTextField(label: "Phone", text: $phoneNumber, keyboard: .phonePad)
+                            Divider().background(Color.black.opacity(0.1))
+                            CustomTextField(label: "Receipt ID", text: $receiptId)
+                            Divider().background(Color.black.opacity(0.1))
+                            CustomTextField(label: "Tracking", text: $tracking)
+                        }
+                        // GLASS EFFECT
+                        .background(.ultraThinMaterial)
+                        .background(Color.white.opacity(0.3)) // Milky tint
                         .cornerRadius(12)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(Color.white.opacity(0.4), lineWidth: 1)
+                        )
+                        .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
+                    }
+                    .padding(.horizontal)
+                    
+                    // MARK: - Save Button (Glass Style)
+                    Button(action: validateAndSave) {
+                        Text(isLoading ? statusMessage : "Save Receipt")
+                            .font(.system(.headline, design: .rounded))
+                            .fontWeight(.bold)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            // GLASS BUTTON
+                            .background(.ultraThinMaterial)
+                            .background(isLoading ? Color.gray.opacity(0.3) : Color.white.opacity(0.5))
+                            .foregroundColor(AppTheme.deepText)
+                            .cornerRadius(12)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .stroke(Color.white.opacity(0.6), lineWidth: 1)
+                            )
+                            .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 3)
+                    }
+                    .disabled(isLoading)
+                    .padding(.horizontal)
+                    .padding(.top, 10)
+                    
+                    Spacer(minLength: 50)
                 }
-                .disabled(isLoading)
-                .padding(.horizontal)
-                .padding(.top, 10)
-                
-                Spacer(minLength: 50)
+                .padding(.vertical)
             }
-            .padding(.vertical)
         }
         .navigationTitle("Verify Details")
-        .scrollDismissesKeyboard(.interactively) // ✅ Dismiss keyboard on scroll
+        .scrollDismissesKeyboard(.interactively)
         .onTapGesture {
-            hideKeyboard() // ✅ Dismiss keyboard on background tap
+            hideKeyboard()
         }
         .fullScreenCover(isPresented: $fullScreenImage) {
             if let image = selectedImage {
@@ -145,7 +173,7 @@ struct SaveAsView: View {
         }
     }
     
-    // MARK: - Helper Methods
+    // MARK: - Helper Methods (UNCHANGED)
     private func hideKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
@@ -218,7 +246,7 @@ struct SaveAsView: View {
     }
 }
 
-// ✅ Optimized TextField Component
+// ✅ Glass Styled TextField Component
 struct CustomTextField: View {
     let label: String
     @Binding var text: String
@@ -227,18 +255,18 @@ struct CustomTextField: View {
     var body: some View {
         HStack {
             Text(label)
-                .font(.subheadline)
+                .font(.system(.subheadline, design: .rounded))
                 .fontWeight(.semibold)
                 .frame(width: 90, alignment: .leading)
-                .foregroundColor(.primary)
+                .foregroundColor(AppTheme.deepText.opacity(0.7))
             
             TextField("Required", text: $text)
-                .font(.body)
-                .foregroundColor(.blue)
+                .font(.system(.body, design: .rounded))
+                .foregroundColor(AppTheme.deepText)
                 .keyboardType(keyboard)
-                .submitLabel(.done) // Add Done button to keyboard
+                .submitLabel(.done)
         }
         .padding()
-        .background(Color(.systemGray6)) // Keeps it fast to render
+        // No explicit background color here so it inherits the glass from the container
     }
 }
