@@ -6,22 +6,21 @@
 //
 
 import SwiftUI
+
 struct ContentView: View {
-    
     var body: some View {
         NavigationStack {
             VStack {
                 Text("Welcome to Gotcha App!")
                     .font(.largeTitle)
-                    .frame(width:300, height: 100)
+                    .frame(width: 300, height: 100)
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 100)
                 
-                
-                NavigationLink(destination: LoginView()){
+                NavigationLink(destination: ResultView()) {
                     Text("Get Started")
                         .font(.headline)
-                        .frame(width:300, height: 50)
+                        .frame(width: 300, height: 50)
                         .background(.blue)
                         .foregroundColor(.white)
                         .cornerRadius(15)
@@ -31,6 +30,7 @@ struct ContentView: View {
         }
     }
 }
+
 #Preview {
     ContentView()
 }

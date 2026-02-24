@@ -10,8 +10,6 @@ import VisionKit
 
 struct DocumentScannerView: UIViewControllerRepresentable {
     @Environment(\.presentationMode) var presentationMode
-    
-    // ✅ Changed: Now only returns the image (OCR happens later)
     var onScanComplete: (_ image: UIImage) -> Void
     
     func makeUIViewController(context: Context) -> VNDocumentCameraViewController {
@@ -37,23 +35,15 @@ struct DocumentScannerView: UIViewControllerRepresentable {
             parent.presentationMode.wrappedValue.dismiss()
         }
         
-        func documentCameraViewController(_ controller: VNDocumentCameraViewController,
-                                          didFailWithError error: Error) {
+        func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFailWithError error: Error) {
             parent.presentationMode.wrappedValue.dismiss()
         }
         
-        func documentCameraViewController(_ controller: VNDocumentCameraViewController,
-                                          didFinishWith scan: VNDocumentCameraScan) {
-            // Dismiss immediately
+        func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
             parent.presentationMode.wrappedValue.dismiss()
-            
             guard scan.pageCount > 0 else { return }
             let originalImage = scan.imageOfPage(at: 0)
-            
-            // ⚡️ FAST RESIZE: Scale to 1200px width so navigation is smooth
             let resizedImage = resizeImage(image: originalImage, targetWidth: 1200) ?? originalImage
-            
-            // Return image immediately without waiting for OCR
             parent.onScanComplete(resizedImage)
         }
         
@@ -61,7 +51,6 @@ struct DocumentScannerView: UIViewControllerRepresentable {
             let scale = targetWidth / image.size.width
             let targetHeight = image.size.height * scale
             let targetSize = CGSize(width: targetWidth, height: targetHeight)
-            
             let renderer = UIGraphicsImageRenderer(size: targetSize)
             return renderer.image { _ in
                 image.draw(in: CGRect(origin: .zero, size: targetSize))

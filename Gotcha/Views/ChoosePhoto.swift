@@ -16,7 +16,6 @@ struct PhotoPicker: UIViewControllerRepresentable {
         var config = PHPickerConfiguration(photoLibrary: .shared())
         config.filter = .images
         config.selectionLimit = 1
-        
         let picker = PHPickerViewController(configuration: config)
         picker.delegate = context.coordinator
         return picker
@@ -39,7 +38,6 @@ struct PhotoPicker: UIViewControllerRepresentable {
                 parent.onPickComplete(nil)
                 return
             }
-            
             provider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
                 DispatchQueue.main.async {
                     guard let self = self else { return }

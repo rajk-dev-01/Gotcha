@@ -14,23 +14,6 @@
 		5694A6492E4E302D00F86D87 /* UIImageTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5694A6482E4E302D00F86D87 /* UIImageTransformer.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		56A631DA2E395CFA004FCC99 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 56A631C32E395CF9004FCC99 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 56A631CA2E395CF9004FCC99;
-			remoteInfo = "Receipt Finder";
-		};
-		56A631E42E395CFA004FCC99 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 56A631C32E395CF9004FCC99 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 56A631CA2E395CF9004FCC99;
-			remoteInfo = "Receipt Finder";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		5641B8102ECAEE08004E0205 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		5694A6302E4D0B8200F86D87 /* Gotcha.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Gotcha.xcdatamodel; sourceTree = "<group>"; };
@@ -38,8 +21,6 @@
 		5694A6462E4D2A8200F86D87 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		5694A6482E4E302D00F86D87 /* UIImageTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageTransformer.swift; sourceTree = "<group>"; };
 		56A631CB2E395CF9004FCC99 /* Gotcha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gotcha.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		56A631D92E395CFA004FCC99 /* GotchaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GotchaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		56A631E32E395CFA004FCC99 /* GotchaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GotchaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56DD8A662EC19A690014F997 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,16 +28,6 @@
 		56A631CD2E395CF9004FCC99 /* Gotcha */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Gotcha;
-			sourceTree = "<group>";
-		};
-		56A631DC2E395CFA004FCC99 /* GotchaTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = GotchaTests;
-			sourceTree = "<group>";
-		};
-		56A631E62E395CFA004FCC99 /* GotchaUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = GotchaUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -67,20 +38,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5641B8112ECAEE08004E0205 /* CoreData.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		56A631D62E395CFA004FCC99 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		56A631E02E395CFA004FCC99 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,8 +61,6 @@
 				5694A6322E4D220A00F86D87 /* GotchaProperties.swift */,
 				5694A6462E4D2A8200F86D87 /* Persistence.swift */,
 				56A631CD2E395CF9004FCC99 /* Gotcha */,
-				56A631DC2E395CFA004FCC99 /* GotchaTests */,
-				56A631E62E395CFA004FCC99 /* GotchaUITests */,
 				562ABD502E46A83C0044676F /* Frameworks */,
 				56A631CC2E395CF9004FCC99 /* Products */,
 			);
@@ -115,8 +70,6 @@
 			isa = PBXGroup;
 			children = (
 				56A631CB2E395CF9004FCC99 /* Gotcha.app */,
-				56A631D92E395CFA004FCC99 /* GotchaTests.xctest */,
-				56A631E32E395CFA004FCC99 /* GotchaUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,52 +99,6 @@
 			productReference = 56A631CB2E395CF9004FCC99 /* Gotcha.app */;
 			productType = "com.apple.product-type.application";
 		};
-		56A631D82E395CFA004FCC99 /* GotchaTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 56A631F02E395CFA004FCC99 /* Build configuration list for PBXNativeTarget "GotchaTests" */;
-			buildPhases = (
-				56A631D52E395CFA004FCC99 /* Sources */,
-				56A631D62E395CFA004FCC99 /* Frameworks */,
-				56A631D72E395CFA004FCC99 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				56A631DB2E395CFA004FCC99 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				56A631DC2E395CFA004FCC99 /* GotchaTests */,
-			);
-			name = GotchaTests;
-			packageProductDependencies = (
-			);
-			productName = "Receipt FinderTests";
-			productReference = 56A631D92E395CFA004FCC99 /* GotchaTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		56A631E22E395CFA004FCC99 /* GotchaUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 56A631F32E395CFA004FCC99 /* Build configuration list for PBXNativeTarget "GotchaUITests" */;
-			buildPhases = (
-				56A631DF2E395CFA004FCC99 /* Sources */,
-				56A631E02E395CFA004FCC99 /* Frameworks */,
-				56A631E12E395CFA004FCC99 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				56A631E52E395CFA004FCC99 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				56A631E62E395CFA004FCC99 /* GotchaUITests */,
-			);
-			name = GotchaUITests;
-			packageProductDependencies = (
-			);
-			productName = "Receipt FinderUITests";
-			productReference = 56A631E32E395CFA004FCC99 /* GotchaUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -204,14 +111,6 @@
 				TargetAttributes = {
 					56A631CA2E395CF9004FCC99 = {
 						CreatedOnToolsVersion = 16.4;
-					};
-					56A631D82E395CFA004FCC99 = {
-						CreatedOnToolsVersion = 16.4;
-						TestTargetID = 56A631CA2E395CF9004FCC99;
-					};
-					56A631E22E395CFA004FCC99 = {
-						CreatedOnToolsVersion = 16.4;
-						TestTargetID = 56A631CA2E395CF9004FCC99;
 					};
 				};
 			};
@@ -233,28 +132,12 @@
 			projectRoot = "";
 			targets = (
 				56A631CA2E395CF9004FCC99 /* Gotcha */,
-				56A631D82E395CFA004FCC99 /* GotchaTests */,
-				56A631E22E395CFA004FCC99 /* GotchaUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		56A631C92E395CF9004FCC99 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		56A631D72E395CFA004FCC99 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		56A631E12E395CFA004FCC99 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -275,34 +158,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		56A631D52E395CFA004FCC99 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		56A631DF2E395CFA004FCC99 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		56A631DB2E395CFA004FCC99 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 56A631CA2E395CF9004FCC99 /* Gotcha */;
-			targetProxy = 56A631DA2E395CFA004FCC99 /* PBXContainerItemProxy */;
-		};
-		56A631E52E395CFA004FCC99 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 56A631CA2E395CF9004FCC99 /* Gotcha */;
-			targetProxy = 56A631E42E395CFA004FCC99 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		56A631EB2E395CFA004FCC99 /* Debug */ = {
@@ -503,96 +359,6 @@
 			};
 			name = Release;
 		};
-		56A631F12E395CFA004FCC99 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 56DD8A662EC19A690014F997 /* Secrets.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
-				MACOSX_DEPLOYMENT_TARGET = 15.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hiresh.Receipt-FinderTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gotcha.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Gotcha";
-				XROS_DEPLOYMENT_TARGET = 2.5;
-			};
-			name = Debug;
-		};
-		56A631F22E395CFA004FCC99 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 56DD8A662EC19A690014F997 /* Secrets.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
-				MACOSX_DEPLOYMENT_TARGET = 15.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hiresh.Receipt-FinderTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gotcha.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Gotcha";
-				XROS_DEPLOYMENT_TARGET = 2.5;
-			};
-			name = Release;
-		};
-		56A631F42E395CFA004FCC99 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 56DD8A662EC19A690014F997 /* Secrets.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
-				MACOSX_DEPLOYMENT_TARGET = 15.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hiresh.Receipt-FinderUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_TARGET_NAME = "Receipt Finder";
-				XROS_DEPLOYMENT_TARGET = 2.5;
-			};
-			name = Debug;
-		};
-		56A631F52E395CFA004FCC99 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 56DD8A662EC19A690014F997 /* Secrets.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
-				MACOSX_DEPLOYMENT_TARGET = 15.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hiresh.Receipt-FinderUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_TARGET_NAME = "Receipt Finder";
-				XROS_DEPLOYMENT_TARGET = 2.5;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -610,24 +376,6 @@
 			buildConfigurations = (
 				56A631EE2E395CFA004FCC99 /* Debug */,
 				56A631EF2E395CFA004FCC99 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		56A631F02E395CFA004FCC99 /* Build configuration list for PBXNativeTarget "GotchaTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				56A631F12E395CFA004FCC99 /* Debug */,
-				56A631F22E395CFA004FCC99 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		56A631F32E395CFA004FCC99 /* Build configuration list for PBXNativeTarget "GotchaUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				56A631F42E395CFA004FCC99 /* Debug */,
-				56A631F52E395CFA004FCC99 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

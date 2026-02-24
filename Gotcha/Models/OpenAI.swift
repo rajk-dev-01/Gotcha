@@ -3,12 +3,12 @@
 //  Gotcha
 //
 //  Created by Rajahiresh Kalva on 10/2/25.
+//  MVVM - Model: OpenAI receipt parsing service
 //
 
 import Foundation
 
 class OpenAIService {
-    // ✅ Securely read API key from Info.plist
     private let apiKey: String = {
         guard let infoDictionary = Bundle.main.infoDictionary,
               let key = infoDictionary["OPENAI_API_KEY"] as? String,
@@ -19,16 +19,12 @@ class OpenAIService {
         return key
     }()
     
-    /// Sends receipt text to OpenAI and returns parsed fields as a dictionary
-    /// Uses async/await for modern concurrency handling
     func extractReceiptInfo(from text: String) async throws -> [String: Any] {
         guard !apiKey.isEmpty else {
             throw NSError(domain: "OpenAIService", code: 401, userInfo: [NSLocalizedDescriptionKey: "Missing API Key"])
         }
         
         let url = URL(string: "https://api.openai.com/v1/chat/completions")!
-        
-        // 1. Refined Prompt
         let prompt = """
         Analyze this receipt text and extract the following fields:
         - Store Name
@@ -49,10 +45,9 @@ class OpenAIService {
         \(text)
         """
         
-        // 2. Request Body with JSON Mode
         let body: [String: Any] = [
             "model": "gpt-4o-mini",
-            "response_format": ["type": "json_object"], // 👈 FIX: Forces valid JSON
+            "response_format": ["type": "json_object"],
             "messages": [
                 ["role": "system", "content": "You are a helpful receipt parsing assistant. You output strict JSON."],
                 ["role": "user", "content": prompt]
@@ -66,24 +61,20 @@ class OpenAIService {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try JSONSerialization.data(withJSONObject: body)
         
-        // 3. Perform Network Request
         let (data, response) = try await URLSession.shared.data(for: request)
         
-        // 4. Debugging: Print raw response if something goes wrong
         guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
             let errorMsg = String(data: data, encoding: .utf8) ?? "Unknown Error"
             print("❌ OpenAI API Error: \(errorMsg)")
             throw NSError(domain: "OpenAIService", code: (response as? HTTPURLResponse)?.statusCode ?? 500, userInfo: [NSLocalizedDescriptionKey: errorMsg])
         }
         
-        // 5. Parse Response
         if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
            let choices = json["choices"] as? [[String: Any]],
            let message = choices.first?["message"] as? [String: Any],
            let content = message["content"] as? String,
            let data = content.data(using: .utf8),
            let parsedResult = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
-            
             print("✅ Successfully parsed JSON: \(parsedResult)")
             return parsedResult
         }

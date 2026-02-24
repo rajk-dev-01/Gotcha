@@ -1,8 +1,8 @@
 //
-//  Receipt_FinderApp.swift
+//  Gotcha.swift
 //  Gotcha
 //
-//  Created by Rajahiresh Kalva on 7/29/25.
+//  MVVM - App entry point
 //
 
 import SwiftUI
@@ -20,18 +20,11 @@ struct Receipt_FinderApp: App {
     }
 }
 
+// MARK: - Root View
 struct RootView: View {
-    @State private var fileName: String = ""
-    @State private var searchText: String = ""
-    @State private var selectedImage: UIImage? = nil
-
     var body: some View {
         NavigationStack {
-            ResultView(
-                fileName: $fileName,
-                searchText: searchText,
-                selectedImage: $selectedImage
-            )
+            ResultView()
         }
     }
 }
