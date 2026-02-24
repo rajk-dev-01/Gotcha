@@ -253,7 +253,7 @@ Secerts-Example.xcconfig         // Example config checked into the repo
 
 - **Name**: Raj K  
 - **Email**: `rajk.dev01@gmail.com`  
-- **LinkedIn**:[`LinkedIn Profile`](www.linkedin.com/in/rajk01)  
+- **LinkedIn**:`www.linkedin.com/in/rajk01`  
 - **GitHub**: [`GitHub Profile`](https://github.com/rajk-dev-01)  
 
 ---
