@@ -2,6 +2,11 @@
 ## Gotcha – Intelligent Receipt Scanner & Organizer
 
 Smart iOS app that helps scan, understand, and organize receipts using on-device OCR and OpenAI for data extraction.
+<p>
+  <img src="https://github.com/user-attachments/assets/4e5573b7-ee72-451f-ac75-397556338461" width="32%" />
+  <img src="https://github.com/user-attachments/assets/08bb7e49-04d3-45c3-beaa-6217dbcde976" width="32%" />
+  <img src="https://github.com/user-attachments/assets/515346db-ea77-47cb-8196-5e39baae4c94" width="32%" />
+</p>
 
 ---
 
